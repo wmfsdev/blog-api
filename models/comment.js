@@ -3,9 +3,9 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const CommentsSchema = new Schema({
-  username: { type: String, required: true },
+  userId: { type: Schema.Types.ObjectId, ref: 'User' },
   body: { type: String, required: true },
   timestamp: { type: Date },
 });
 
-module.exports = mongoose.model('Posts', CommentsSchema);
+module.exports = mongoose.model('Comment', CommentsSchema);

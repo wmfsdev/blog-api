@@ -8,6 +8,7 @@ const ArticleSchema = new Schema({
   publish: { type: Boolean, default: false },
   category: { type: String },
   timestamp: { type: Date },
+  comments: [{ type: Schema.Types.ObjectId, ref: 'Comment' }],
 });
 
 module.exports = mongoose.model('Article', ArticleSchema);

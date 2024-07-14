@@ -5,9 +5,9 @@ const { Schema } = mongoose;
 const UserSchema = new Schema({
   username: { type: String, required: true },
   password: { type: String, required: true },
-  posts: [{ type: String }],
-  comments: [{ type: String }],
-  status: { type: String, enum: ['admin', 'user'] },
+  articles: [{ type: Schema.Types.ObjectId, ref: 'Article' }],
+  comments: [{ type: Schema.Types.ObjectId, ref: 'Comment' }],
+  status: { type: String, enum: ['admin', 'user'], default: 'user' },
 });
 
-module.exports = mongoose.model('Users', UserSchema);
+module.exports = mongoose.model('User', UserSchema);

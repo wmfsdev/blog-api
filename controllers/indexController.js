@@ -37,6 +37,8 @@ exports.protected = (req, res, next) => {
     if (!user) {
       return res.status(401).json({ message: 'not authorised' });
     }
+    // req.user = user.userId
+    console.log("auth user ", user) // {userId and iat}
     return res.status(200).json(info);
   })(req, res, next);
 };

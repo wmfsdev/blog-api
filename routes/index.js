@@ -15,6 +15,8 @@ router.post('/articles', articleController.article_post);
 
 router.get('/articles', articleController.article_get);
 
+router.get('/articles/:id', articleController.articleId_get);
+
 // ELSE
 
 router.get('/signup', indexController.signup_get);
